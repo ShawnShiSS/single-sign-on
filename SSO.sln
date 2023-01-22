@@ -5,9 +5,24 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{86A9E505-5E46-4765-9F43-0F01543ED125}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SsoServer", "src\SsoServer\SsoServer.csproj", "{CDBD57BA-9076-4D78-94D7-202885968CAF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDBD57BA-9076-4D78-94D7-202885968CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDBD57BA-9076-4D78-94D7-202885968CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDBD57BA-9076-4D78-94D7-202885968CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDBD57BA-9076-4D78-94D7-202885968CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CDBD57BA-9076-4D78-94D7-202885968CAF} = {86A9E505-5E46-4765-9F43-0F01543ED125}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9868C2BC-7D35-44E1-A718-D95DB8DF67DB}
