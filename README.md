@@ -4,7 +4,8 @@ A starting point to build a single sign-on (SSO) solution that is ready for real
 # Features
 * User membership management using ASP.NET Core Identity and SQL database
 * OpenID Connect and OAuth 2.0 implementation using IdentityServer
-* Configuration data storage in SQL database
+* Configuration data storage (i.e., API resource, Identity resource, clients) in SQL database
+* Persisted grants data storage (i.e. refresh token) in SQL database
 
 
 # License
