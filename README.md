@@ -3,7 +3,8 @@ A starting point to build a single sign-on (SSO) solution that is ready for real
 
 # Features
 * User membership management using ASP.NET Core Identity and SQL database
-* 
+* OpenID Connect and OAuth 2.0 implementation using IdentityServer
+
 
 # License
 This repo is for development purpose.
