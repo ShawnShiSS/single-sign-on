@@ -10,6 +10,10 @@ A starting point to build a single sign-on (SSO) solution that is ready for real
 * Auto-creation for database tables in development environment for fast up and running
 * Initial data seeding support for fast up and running
 
+# Getting Started
+* Clone
+* Run
+
 
 # License
 This repo is for development purpose.
