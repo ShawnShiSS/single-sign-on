@@ -15,6 +15,10 @@ A starting point to build a single sign-on (SSO) solution that is ready for real
 * Clone the repo
 * Run the "SsoServer" project in Visual Studio or in command line
 
+# Additional Resources
+I have published some short articles to cover different aspects of this project. Please feel free to give them a read.
+
+* [Single Sign-On (SSO) Simplified: Understanding How SSO Works in Plain English](https://medium.com/geekculture/single-sign-on-sso-simplified-understanding-how-sso-works-in-plain-english-7d5739d23aeb)
 
 # License
 This repo is for development purpose.
