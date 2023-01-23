@@ -7,8 +7,8 @@ A starting point to build a single sign-on (SSO) solution that is ready for real
 * Configuration data storage (i.e., API resource, Identity resource, clients, etc.) in SQL database
 * Persisted grants data storage (i.e. refresh token, digital signing keys, etc.) in SQL database
 * Entity Framework Core support for database schema management using migrations (Code first approach)
-* Auto-creation for database tables in development environment for fast up and running
-* Initial data seeding support for fast up and running
+* Support database auto-creation at application startup in development environment for fast up and running
+* Support initial data-seeding at application startup in development environment for fast up and running
 
 # Getting Started
 * Clone
