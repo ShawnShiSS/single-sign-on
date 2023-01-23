@@ -1,5 +1,19 @@
 # Single Sign-On (SSO) 
-A starting point to build a single sign-on (SSO) solution
+A starting point to build a single sign-on (SSO) solution that is ready for real world applications on production.
+
+# Features
+* User membership management using ASP.NET Core Identity and SQL database
+* OpenID Connect and OAuth 2.0 implementation using IdentityServer
+* Configuration data storage (i.e., API resource, Identity resource, clients, etc.) in SQL database
+* Persisted grants data storage (i.e. refresh token, digital signing keys, etc.) in SQL database
+* Entity Framework Core support for database schema management using migrations (Code first approach)
+* Support database auto-creation at application startup in development environment for fast up and running
+* Support initial data-seeding at application startup in development environment for fast up and running
+
+# Getting Started
+* Clone
+* Run
+
 
 # License
 This repo is for development purpose.
