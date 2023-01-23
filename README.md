@@ -11,8 +11,8 @@ A starting point to build a single sign-on (SSO) solution that is ready for real
 * Support initial data-seeding at application startup in development environment for fast up and running
 
 # Getting Started
-* Clone
-* Run
+* Clone the repo
+* Run the "SsoServer" project in Visual Studio or in command line
 
 
 # License
