@@ -13,8 +13,11 @@ namespace SsoServer
         {
             builder.Services.AddRazorPages();
 
+            var migrationsAssembly = typeof(Program).Assembly.GetName().Name;
+            string dbConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlite(dbConnectionString));
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -31,9 +34,14 @@ namespace SsoServer
                 // see https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/
                 options.EmitStaticAudienceClaim = true;
                 })
-                .AddInMemoryIdentityResources(Config.IdentityResources)
-                .AddInMemoryApiScopes(Config.ApiScopes)
-                .AddInMemoryClients(Config.Clients)
+                .AddConfigurationStore(options => 
+                {
+                    options.ConfigureDbContext = b => b.UseSqlite(dbConnectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                })
+                .AddOperationalStore(options => 
+                {
+                    options.ConfigureDbContext = b => b.UseSqlite(dbConnectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                })
                 .AddAspNetIdentity<ApplicationUser>();
 
             builder.Services.AddAuthentication()
