@@ -9,6 +9,7 @@ A starting point to build a single sign-on (SSO) solution that is ready for real
 * Entity Framework Core support for database schema management using migrations (Code first approach)
 * Support database auto-creation at application startup in development environment for fast up and running
 * Support initial data-seeding at application startup in development environment for fast up and running
+* (future feature) Support API endpoints to the SSO application as local API endpoints to manage users 
 
 # Getting Started
 * Clone the repo
