@@ -1,5 +1,5 @@
 # Single Sign-On (SSO) 
-A starting point to build a single sign-on (SSO) solution
+A starting point to build a single sign-on (SSO) solution that is ready for real world applications on production.
 
 # License
 This repo is for development purpose.
