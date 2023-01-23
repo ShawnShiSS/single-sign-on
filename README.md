@@ -1,6 +1,9 @@
 # Single Sign-On (SSO) 
 A starting point to build a single sign-on (SSO) solution that is ready for real world applications on production.
 
+# Features
+* User membership management using ASP.NET Core Identity
+
 # License
 This repo is for development purpose.
 
