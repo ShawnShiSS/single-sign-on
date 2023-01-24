@@ -1,12 +1,14 @@
 using Duende.IdentityServer;
 using Duende.IdentityServer.EntityFramework.DbContexts;
 using Duende.IdentityServer.EntityFramework.Mappers;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using SsoServer.Data;
 using SsoServer.Data.Seeding;
 using SsoServer.Models;
+using System.Reflection;
 
 namespace SsoServer
 {
@@ -16,6 +18,9 @@ namespace SsoServer
         {
             // The UI pages are in the Pages folder
             builder.Services.AddRazorPages();
+
+            // Setup Controllers support for API endpoints
+            builder.Services.AddControllers();
 
             // The call to MigrationsAssembly(…) later tells Entity Framework that the host project will contain the migrations. This is necessary since the host project is in a different assembly than the one that contains the DbContext classes.
             var migrationsAssembly = typeof(Program).Assembly.GetName().Name;
@@ -66,6 +71,9 @@ namespace SsoServer
                     options.ClientSecret = "copy client secret from Google here";
                 });
 
+            // Use mediator design pattern to reduce coupling between classes while allowing communication between them.
+            builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
+
             return builder.Build();
         }
 
@@ -92,6 +100,12 @@ namespace SsoServer
 
             app.MapRazorPages()
                 .RequireAuthorization();
+
+            // Map API endpoints following MVC Controller convention
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+            });
 
             return app;
         }
