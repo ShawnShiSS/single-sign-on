@@ -61,6 +61,7 @@ namespace SsoServer.Features.User
                 List<UserModel> models = new List<UserModel>();
 
                 IEnumerable<ApplicationUser> users = await _userManager.Users
+                                                                       .Where(x => x.IsEnabled)
                                                                        .ToListAsync();
 
                 foreach (ApplicationUser user in users)
