@@ -20,7 +20,9 @@ namespace SsoServer.Data.Seeding
             new ApiScope[]
             {
                 new ApiScope("api1", displayName: "API 1"),
-                new ApiScope("api2", displayName: "API 2")
+                new ApiScope("api2", displayName: "API 2"),
+                // API endpoints in the same application hosting IdentityServer
+                new ApiScope(IdentityServerConstants.LocalApi.ScopeName, displayName: IdentityServerConstants.LocalApi.ScopeName)
             };
 
         public static IEnumerable<Client> ClientsToSeed =>
@@ -34,8 +36,11 @@ namespace SsoServer.Data.Seeding
 
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
-
-                    AllowedScopes = { "api1" }
+                    
+                    AllowedScopes = { 
+                        "api1" , 
+                        // Access to local API in the same application hosting SSO server
+                        IdentityServerConstants.LocalApi.ScopeName }
                 },
 
                 // interactive client using code flow + pkce
@@ -59,7 +64,9 @@ namespace SsoServer.Data.Seeding
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "api2"
+                        "api2",
+                        // Access to local API in the same application hosting SSO server
+                        IdentityServerConstants.LocalApi.ScopeName
                     },
                 }
             };
