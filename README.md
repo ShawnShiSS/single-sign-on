@@ -1,5 +1,5 @@
-# Single Sign-On (SSO) 
-A starting point to build a single sign-on (SSO) solution that is ready for real world applications on production.
+# Single Sign-On (SSO) solution using ASP.NET Core Identity and Identity Server
+A starting point to build a single sign-on (SSO) solution that is ready for real world applications using ASP.NET Core Identity for user membership management, and Identity Server for OpenID Connect and OAuth 2.0 implementation.
 
 # Features
 * User membership management using ASP.NET Core Identity and SQL database
@@ -9,11 +9,20 @@ A starting point to build a single sign-on (SSO) solution that is ready for real
 * Entity Framework Core support for database schema management using migrations (Code first approach)
 * Support database auto-creation at application startup in development environment for fast up and running
 * Support initial data-seeding at application startup in development environment for fast up and running
+* (future feature) Support API endpoints to the SSO application as local API endpoints to manage users 
 
 # Getting Started
-* Clone
-* Run
+* Clone the repo
+* Run the "SsoServer" project in Visual Studio or in command line
 
+# Additional Resources
+I have published some short articles to cover different aspects of this project. Please feel free to give them a read.
+
+* [Single Sign-On (SSO) Simplified: Understanding How SSO Works in Plain English](https://medium.com/geekculture/single-sign-on-sso-simplified-understanding-how-sso-works-in-plain-english-7d5739d23aeb)
+* [Build your own Single Sign-On (SSO) server in ASP.NET Core](https://medium.com/@shawn-shi/build-your-own-single-sign-on-sso-server-in-asp-net-core-4344f6b390d1)
+
+# Give a star
+:star: If you enjoy this project, or are using this project to start your exciting new project, or are just forking it to play, please give it a star. Much appreciated! :star: 
 
 # License
 This repo is for development purpose.
