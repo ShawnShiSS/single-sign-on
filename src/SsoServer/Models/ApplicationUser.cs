@@ -14,7 +14,7 @@ namespace SsoServer.Models
         ///     Whether the account is enabled/disabled.  
         ///     This is different than the user being locked out due to using an incorrect password too many times.
         /// </summary>
-        //public bool IsEnabled { get; set; }
+        public bool IsEnabled { get; set; }
 
     }
 }
