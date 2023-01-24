@@ -1,5 +1,7 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static Duende.IdentityServer.IdentityServerConstants;
 
 namespace SsoServer.Features.User
 {
@@ -7,7 +9,6 @@ namespace SsoServer.Features.User
     ///     User API related actions.
     /// </summary>
     //[Authorize(LocalApi.PolicyName)]
-    //[AllowAnonymous]
     [ApiController]
     [Route("api/user")]
     public class UserController : ControllerBase
@@ -40,5 +41,25 @@ namespace SsoServer.Features.User
             return response.Resource;
         }
 
+
+        // GET: api/user/5
+        /// <summary>
+        ///     Get a user by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}", Name = "GetUser")]
+        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
+        public async Task<IActionResult> Get(string id)
+        {
+            var response = await _mediator.Send(new Get.GetQuery() { Id = id });
+
+            if (response.Resource == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(response.Resource);
+        }
     }
 }
