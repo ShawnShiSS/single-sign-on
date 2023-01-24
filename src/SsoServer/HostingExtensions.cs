@@ -71,8 +71,14 @@ namespace SsoServer
                     options.ClientSecret = "copy client secret from Google here";
                 });
 
+            // Enable token validation for local APIs
+            builder.Services.AddLocalApiAuthentication();
+
             // Use mediator design pattern to reduce coupling between classes while allowing communication between them.
             builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            // Swagger for User API
+            builder.Services.AddSwaggerGen();
 
             return builder.Build();
         }
@@ -90,6 +96,10 @@ namespace SsoServer
                 app.EnsureAspNetCoreIdentityDatabaseIsSeeded(true);
                 app.EnsureIdentityServerConfigurationDbIsSeeded(true);
                 app.EnsureIdentityServerPersistedGrantDbIsSeeded(true);
+
+                // Swagger 
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseStaticFiles();
