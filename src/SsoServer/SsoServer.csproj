@@ -20,6 +20,7 @@
 	<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0" />
 	<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0" />
+	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
