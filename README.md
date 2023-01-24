@@ -21,6 +21,9 @@ I have published some short articles to cover different aspects of this project.
 * [Single Sign-On (SSO) Simplified: Understanding How SSO Works in Plain English](https://medium.com/geekculture/single-sign-on-sso-simplified-understanding-how-sso-works-in-plain-english-7d5739d23aeb)
 * [Build your own Single Sign-On (SSO) server in ASP.NET Core](https://medium.com/@shawn-shi/build-your-own-single-sign-on-sso-server-in-asp-net-core-4344f6b390d1)
 
+# Give a star
+:star: If you enjoy this project, or are using this project to start your exciting new project, or are just forking it to play, please give it a star. Much appreciated! :star: 
+
 # License
 This repo is for development purpose.
 
