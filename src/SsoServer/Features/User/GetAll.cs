@@ -72,6 +72,7 @@ namespace SsoServer.Features.User
                         Id = user.Id,
                         UserName = user.UserName,
                         Email = user.Email,
+                        IsEnabled = user.IsEnabled
                     };
 
                     // Get user claims
@@ -88,11 +89,12 @@ namespace SsoServer.Features.User
                         model.LastName = lastNameClaim.Value;
                     }
 
-                    // Get role, we only support one user having one role.
+                    // Get role
                     IList<string> roles = await _userManager.GetRolesAsync(user);
                     if (roles != null && roles.Count > 0)
                     {
-                        model.Role = String.Join(',', roles);
+                        // we only support one user having one role for now
+                        model.Role = roles[0];
                     }
 
                     models.Add(model);

@@ -73,7 +73,8 @@ namespace SsoServer.Features.User
                 {
                     Id = user.Id,
                     UserName = user.UserName,
-                    Email = user.Email
+                    Email = user.Email,
+                    IsEnabled = user.IsEnabled
                 };
 
                 // Get user claims
