@@ -34,10 +34,7 @@ namespace SsoServer.Features.User
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
         public async Task<IEnumerable<UserModel>> GetAll()
         {
-            var response = await _mediator.Send(new GetAll.GetAllQuery()
-            {
-                IsEnabled = true
-            });
+            var response = await _mediator.Send(new GetAll.GetAllQuery(){});
             return response.Resource;
         }
 
@@ -60,6 +57,84 @@ namespace SsoServer.Features.User
             }
 
             return Ok(response.Resource);
+        }
+
+        // POST: api/user
+        /// <summary>
+        ///     Create a user
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Create))]
+        public async Task<ActionResult<Features.User.Create.CreateUserResponse>> Create([FromBody] Create.CreateUserCommand command)
+        {
+            var response = await _mediator.Send(command);
+
+            if (!response.IdentityResult.Succeeded)
+            {
+                return BadRequest();
+            }
+
+            return CreatedAtRoute("GetUser", new { id = response.Id }, new { Id = response.Id });
+        }
+
+        // PUT: api/user/5
+        /// <summary>
+        ///     Update a user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("{id}")]
+        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Update))]
+        public async Task<IActionResult> Update(string id, [FromBody] Update.UpdateUserCommand command)
+        {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+
+            var response = await _mediator.Send(command);
+
+            if (response.NotFound)
+            {
+                return NotFound();
+            }
+
+            if (!response.IdentityResult.Succeeded)
+            {
+                return BadRequest();
+            }
+
+            // Return success code
+            return NoContent();
+        }
+
+        // DELETE: api/user/5
+        /// <summary>
+        ///     Deactivate/Soft-delete a user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        [HttpDelete("{id}")]
+        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Delete))]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var response = await _mediator.Send(new Delete.DeleteUserCommand { Id = id });
+
+            if (response.NotFound)
+            {
+                return NotFound();
+            }
+
+            if (!response.IdentityResult.Succeeded)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
         }
     }
 }
