@@ -97,7 +97,7 @@ namespace SsoServer
                 app.EnsureIdentityServerConfigurationDbIsSeeded(true);
                 app.EnsureIdentityServerPersistedGrantDbIsSeeded(true);
 
-                // Swagger 
+                // Swagger UI for development
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
