@@ -10,11 +10,7 @@ namespace SsoServer.Models
     {
         // Add profile data for application users by adding properties to the ApplicationUser class, see example below.
 
-        /// <summary>
-        ///     Whether the account is enabled/disabled.  
-        ///     This is different than the user being locked out due to using an incorrect password too many times.
-        /// </summary>
-        public bool IsEnabled { get; set; }
+        
 
     }
 }
