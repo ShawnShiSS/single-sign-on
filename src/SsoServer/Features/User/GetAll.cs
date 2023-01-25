@@ -16,10 +16,7 @@ namespace SsoServer.Features.User
         /// </summary>
         public class GetAllQuery : IRequest<QueryResponse>
         {
-            /// <summary>
-            ///     Whether the user is active or disabled.
-            /// </summary>
-            public bool IsEnabled { get; set; }
+            
         }
 
         /// <summary>
@@ -61,7 +58,6 @@ namespace SsoServer.Features.User
                 List<UserModel> models = new List<UserModel>();
 
                 IEnumerable<ApplicationUser> users = await _userManager.Users
-                                                                       .Where(x => x.IsEnabled)
                                                                        .ToListAsync();
 
                 foreach (ApplicationUser user in users)
@@ -72,7 +68,6 @@ namespace SsoServer.Features.User
                         Id = user.Id,
                         UserName = user.UserName,
                         Email = user.Email,
-                        IsEnabled = user.IsEnabled
                     };
 
                     // Get user claims
