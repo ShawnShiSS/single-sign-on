@@ -89,7 +89,6 @@ namespace SsoServer.Data.Seeding
                 user.UserName = username;
                 user.Email = email;
                 user.EmailConfirmed = true;
-                user.IsEnabled = true;
 
                 // Create user
                 IdentityResult result = userManager.CreateAsync(user, password).Result;
