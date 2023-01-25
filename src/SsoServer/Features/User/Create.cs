@@ -45,6 +45,13 @@ namespace SsoServer.Features.User
             [Required]
             public string Role { get; set; }
 
+            /// <summary>
+            ///     Password for the new user.
+            /// </summary>
+            [Required]
+            [MinLength(6, ErrorMessage = "Password must be at least 6 characters")]
+            public string Password { get; set; }
+
             // Register model validation
             public IEnumerable<ValidationResult> Validate(System.ComponentModel.DataAnnotations.ValidationContext validationContext)
             {
@@ -70,7 +77,7 @@ namespace SsoServer.Features.User
 
                     ApplicationUser existingUser = userManager.FindByEmailAsync(this.Email).Result;
 
-                    if (existingUser != null && existingUser.IsEnabled)
+                    if (existingUser != null)
                     {
                         validationErrors.Add(new ValidationResult($"Email {this.Email} is already being used by an active user."));
                     }
@@ -126,39 +133,12 @@ namespace SsoServer.Features.User
 
                 ApplicationUser existingUser = await _userManager.FindByEmailAsync(command.Email);
 
-                // Optional logic : if user exists and is just soft-deleted, just reactivate the user
-                if (existingUser != null && !existingUser.IsEnabled)
-                {
-                    // Send Update command using Mediatr
-                    var updateUserCommand = new Features.User.Update.UpdateUserCommand()
-                    {
-                        Id = existingUser.Id,
-                        Email = command.Email,
-                        FirstName = command.FirstName,
-                        LastName = command.LastName,
-                        Role = command.Role,
-                        IsEnabled = true
-                    };
-
-                    var updateUserCommandResponse = await _mediator.Send(updateUserCommand);
-
-                    // Update response
-                    response.Id = existingUser.Id;
-                    response.IdentityResult = updateUserCommandResponse.IdentityResult;
-
-                    // We will skip sending invitation email, since the user has got it before...
-                    // If the user has forgotten their password, they can use the Forgot Password page.
-                    return response;
-
-                }
-
                 // Create brand new user
                 ApplicationUser user = new ApplicationUser();
                 user.UserName = command.Email;
                 user.Email = command.Email;
                 user.EmailConfirmed = true;
-                user.IsEnabled = true;
-                string initialPassword = $"{Guid.NewGuid().ToString("N")}9aA#";
+                string initialPassword = command.Password;
 
                 IdentityResult result = await _userManager.CreateAsync(user, initialPassword);
                 response.IdentityResult = result;
@@ -180,8 +160,8 @@ namespace SsoServer.Features.User
                 roles.Add(command.Role);
                 await _userManager.AddToRolesAsync(user, roles);
 
-                // Skipped: send invitation email to user
-                
+                // Skipped: send invitation email to user to login
+
                 // Prepare response
                 ApplicationUser userCreated = await _userManager.FindByEmailAsync(user.Email);
 
