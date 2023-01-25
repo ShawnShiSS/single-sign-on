@@ -11,6 +11,10 @@
         public string Role { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        /// <summary>
+        ///     Whether the user is enabled, for soft deleting purpose.
+        /// </summary>
+        public bool IsEnabled { get; set; }
 
     }
 }
