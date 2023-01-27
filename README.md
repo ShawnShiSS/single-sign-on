@@ -19,7 +19,7 @@ A starting point to build a single sign-on (SSO) solution that is ready for real
 I have published some short articles to cover different aspects of this project. Please feel free to give them a read.
 
 * [Single Sign-On (SSO) Simplified: Understanding How SSO Works in Plain English](https://medium.com/geekculture/single-sign-on-sso-simplified-understanding-how-sso-works-in-plain-english-7d5739d23aeb)
-* [Build your own Single Sign-On (SSO) server in ASP.NET Core](https://medium.com/@shawn-shi/build-your-own-single-sign-on-sso-server-in-asp-net-core-4344f6b390d1)
+* [Build Your Own Authentication Server for Single Sign-On (SSO) in ASP.NET Core](https://medium.com/@shawn-shi/build-your-own-single-sign-on-sso-server-in-asp-net-core-4344f6b390d1)
 * [REST API Best Practices — Design Patterns for Building Maintainable Web APIs](https://shawn-shi.medium.com/rest-api-best-practices-design-patterns-for-building-maintainable-web-apis-in-asp-net-core-b95addad084)
 * [REST API Best Practices — Implement Design Patterns for Maintainable web APIs in ASP.NET Core](https://shawn-shi.medium.com/rest-api-best-practices-implement-design-patterns-for-maintainable-web-apis-in-asp-net-core-4b9118df39a)
 
