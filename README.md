@@ -1,5 +1,5 @@
-# Single Sign-On (SSO) solution using ASP.NET Core Identity and Identity Server
-A starting point to build a single sign-on (SSO) solution that is ready for real world applications using ASP.NET Core Identity for user membership management, and Identity Server for OpenID Connect and OAuth 2.0 implementation.
+# Authentication server for Single Sign-On (SSO) using ASP.NET Core Identity and Identity Server
+A starting point to build a central authentication server for single sign-on (SSO). The project is ready for real world applications using ASP.NET Core Identity for user membership management, and Identity Server for OpenID Connect and OAuth 2.0 implementation.
 
 # Features
 * User membership management using ASP.NET Core Identity and SQL database
