@@ -20,8 +20,8 @@ I have published some short articles to cover different aspects of this project.
 
 * [Single Sign-On (SSO) Simplified: Understanding How SSO Works in Plain English](https://medium.com/geekculture/single-sign-on-sso-simplified-understanding-how-sso-works-in-plain-english-7d5739d23aeb)
 * [Build Your Own Authentication Server for Single Sign-On (SSO) in ASP.NET Core](https://medium.com/@shawn-shi/build-your-own-single-sign-on-sso-server-in-asp-net-core-4344f6b390d1)
-* [REST API for User Management in Authentication Server for Single Sign-On](https://shawn-shi.medium.com/rest-api-best-practices-design-patterns-for-building-maintainable-web-apis-in-asp-net-core-b95addad084)
-* [REST API for User Management in Authentication Server for Single Sign-On (2)](https://shawn-shi.medium.com/rest-api-best-practices-implement-design-patterns-for-maintainable-web-apis-in-asp-net-core-4b9118df39a)
+* [REST API for User Management in Authentication Server for Single Sign-On](https://shawn-shi.medium.com/rest-api-best-practices-design-patterns-for-building-maintainable-web-apis-in-asp-net-core-b95addad084) : discuss how to develop REST API endpoints to manage users in a SSO server
+* [REST API for User Management in Authentication Server for Single Sign-On (2)](https://shawn-shi.medium.com/rest-api-best-practices-implement-design-patterns-for-maintainable-web-apis-in-asp-net-core-4b9118df39a)  : discuss how to develop REST API endpoints to manage users in a SSO server
 
 # Give a star
 :star: If you enjoy this project, or are using this project to start your exciting new project, or are just forking it to play, please give it a star. Much appreciated! :star: 
