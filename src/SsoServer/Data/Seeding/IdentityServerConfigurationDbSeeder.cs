@@ -9,6 +9,8 @@ namespace SsoServer.Data.Seeding
 {
     public static class IdentityServerConfigurationDbSeeder
     {
+        private static readonly string FarmlandWebApi = "farmlandwebapi";
+
         public static IEnumerable<IdentityResource> IdentityResourcesToSeed =>
             new IdentityResource[]
             {
@@ -22,7 +24,8 @@ namespace SsoServer.Data.Seeding
                 new ApiScope("api1", displayName: "API 1"),
                 new ApiScope("api2", displayName: "API 2"),
                 // API endpoints in the same application hosting IdentityServer
-                new ApiScope(IdentityServerConstants.LocalApi.ScopeName, displayName: IdentityServerConstants.LocalApi.ScopeName)
+                new ApiScope(IdentityServerConstants.LocalApi.ScopeName, displayName: IdentityServerConstants.LocalApi.ScopeName),
+                new ApiScope(FarmlandWebApi, displayName: "Farmland Web API"),
             };
 
         public static IEnumerable<Client> ClientsToSeed =>
@@ -40,7 +43,9 @@ namespace SsoServer.Data.Seeding
                     AllowedScopes = { 
                         "api1" , 
                         // Access to local API in the same application hosting SSO server
-                        IdentityServerConstants.LocalApi.ScopeName }
+                        IdentityServerConstants.LocalApi.ScopeName ,
+                        FarmlandWebApi
+                    }
                 },
 
                 // interactive client using code flow + pkce
@@ -66,7 +71,8 @@ namespace SsoServer.Data.Seeding
                         IdentityServerConstants.StandardScopes.Profile,
                         "api2",
                         // Access to local API in the same application hosting SSO server
-                        IdentityServerConstants.LocalApi.ScopeName
+                        IdentityServerConstants.LocalApi.ScopeName,
+                        FarmlandWebApi
                     },
                 }
             };
