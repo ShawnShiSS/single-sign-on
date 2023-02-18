@@ -31,23 +31,22 @@ namespace SsoServer.Data.Seeding
         public static IEnumerable<Client> ClientsToSeed =>
             new Client[]
             {
-                // m2m client credentials flow client
+                // Merchant
                 new Client
                 {
-                    ClientId = "m2m.client1",
-                    ClientName = "Sample Machine-to-Machine Client",
-
+                    // The ID badge
+                    ClientId = "merchant",
+                    ClientName = "Merchant Client",
+                    // Defines the merchant has to use client credentials flow
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    // Secret code
                     ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
-                    
+
                     AllowedScopes = { 
-                        "api1" , 
-                        // Access to local API in the same application hosting SSO server
-                        IdentityServerConstants.LocalApi.ScopeName ,
+                        // Grant access to the farmland web API
                         FarmlandWebApi
                     }
                 },
-
                 // interactive client using code flow + pkce
                 new Client
                 {
