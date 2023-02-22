@@ -23,6 +23,7 @@ I have published some short articles to cover different aspects of this project.
 * [REST API for User Management in Authentication Server for Single Sign-On](https://shawn-shi.medium.com/rest-api-best-practices-design-patterns-for-building-maintainable-web-apis-in-asp-net-core-b95addad084) : discuss how to develop REST API endpoints to manage users in an SSO server at the design level
 * [REST API for User Management in Authentication Server for Single Sign-On (2)](https://shawn-shi.medium.com/rest-api-best-practices-implement-design-patterns-for-maintainable-web-apis-in-asp-net-core-4b9118df39a)  : discuss how to develop REST API endpoints to manage users in an SSO server at the code level
 * [Protect Web API using Your Own Authentication Server](https://shawn-shi.medium.com/protect-web-api-using-your-own-authentication-server-f0d04047bdd0)
+* [Access Web API Protected by Your Own Authentication Server](https://shawn-shi.medium.com/access-web-api-protected-by-your-own-authentication-server-846d40c7317d)
 
 # Give a star
 :star: If you enjoy this project, or are using this project to start your exciting new project, or are just forking it to play, please give it a star. Much appreciated! :star: 
